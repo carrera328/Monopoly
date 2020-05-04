@@ -63,9 +63,9 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: "Light Blue"
         },
-        // stopped right here 
         {
             price: 100, 
             name:"Vermont Avenue",
@@ -83,26 +83,68 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: "Light Blue"
         },
         {
             price: 120, 
-            name:"Connecticute Avenue",
+            name:"Connecticut Avenue",
             owner: null,
             rent: {
                 withNoHouseOrHotel: 8,
                 withMonopoly: 16,
                 withOneHouse: 40,
-                withTwoHouse: 60,
-                withThreeHouses: 180,
-                withFourHouses: 320,
-                withHotel: 450
+                withTwoHouse: 100,
+                withThreeHouses: 300,
+                withFourHouses: 450,
+                withHotel: 600
             },
-            mortgage:30,
+            mortgage:60,
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: "Light Blue"
+        },
+        {
+            price: 140, 
+            name:"St.Charles Place",
+            owner: null,
+            rent: {
+                withNoHouseOrHotel: 10,
+                withMonopoly: 20,
+                withOneHouse: 50,
+                withTwoHouse: 150,
+                withThreeHouses: 450,
+                withFourHouses: 625,
+                withHotel: 750
+            },
+            mortgage:70,
+            houseCost: 100,
+            hotelCost: 100,
+            numHouses: 0,
+            numHotels: 0,
+            color: "Pink"
+        },
+        {
+            price: 140, 
+            name:"States Avenue",
+            owner: null,
+            rent: {
+                withNoHouseOrHotel: 10,
+                withMonopoly: 20,
+                withOneHouse: 50,
+                withTwoHouse: 150,
+                withThreeHouses: 450,
+                withFourHouses: 625,
+                withHotel: 750
+            },
+            mortgage:70,
+            houseCost: 100,
+            hotelCost: 100,
+            numHouses: 0,
+            numHotels: 0,
+            color: "Pink"
         },
         {
             price: 60, 
@@ -121,7 +163,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -140,7 +183,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -159,7 +203,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -178,7 +223,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -197,7 +243,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -216,7 +263,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -235,7 +283,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -254,7 +303,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -273,7 +323,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -292,7 +343,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -311,7 +363,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -330,7 +383,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -349,7 +403,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -368,7 +423,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         },
         {
             price: 60, 
@@ -387,45 +443,8 @@ export default
             houseCost: 50,
             hotelCost: 50,
             numHouses: 0,
-            numHotels: 0
-        },
-        {
-            price: 60, 
-            name:"Baltic Avenue",
-            owner: null,
-            rent: {
-                withNoHouseOrHotel: 4,
-                withMonopoly: 12,
-                withOneHouse: 20,
-                withTwoHouse: 60,
-                withThreeHouses: 180,
-                withFourHouses: 320,
-                withHotel: 450
-            },
-            mortgage:30,
-            houseCost: 50,
-            hotelCost: 50,
-            numHouses: 0,
-            numHotels: 0
-        },
-        {
-            price: 60, 
-            name:"Baltic Avenue",
-            owner: null,
-            rent: {
-                withNoHouseOrHotel: 4,
-                withMonopoly: 12,
-                withOneHouse: 20,
-                withTwoHouse: 60,
-                withThreeHouses: 180,
-                withFourHouses: 320,
-                withHotel: 450
-            },
-            mortgage:30,
-            houseCost: 50,
-            hotelCost: 50,
-            numHouses: 0,
-            numHotels: 0
+            numHotels: 0,
+            color: ""
         }
     ]
 }
