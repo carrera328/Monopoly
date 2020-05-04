@@ -10,3 +10,10 @@ export function Deed(value, owner, name, properties) {
     }
 }
 
+export function Player(name, age) {
+    return {
+        name: name,
+        age: age,
+        ownedDeeds: []
+    }
+}
