@@ -1,13 +1,6 @@
 import * as helper from './helper.js';
 import * as schema from './schema.js';
 
-
-
-
-
-
-
-
 export function generateEvent(player, rolled) {
     console.log(`${player.name} has rolled a ${rolled} and landed on ${schema.default.Board[rolled].name}`);
     
