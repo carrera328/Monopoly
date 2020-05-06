@@ -65,7 +65,6 @@ export default
             numHouses: 0,
             numHotels: 0
         },
-        // stopped right here 
         {
             price: 100, 
             name:"Vermont Avenue",
