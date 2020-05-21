@@ -4,13 +4,15 @@ export function test() {
 }
 
 export function getBoardPlaceInfo(boardPlace) {
-    console.log(schema.default.Board[boardPlace]);
+   // console.log(schema.default.Board[boardPlace]);
     return schema.default.Board[boardPlace];            
 }
 
 export function Player(name) {
     return {
         name: name,
+        placeOnboard: 0,
+        money: 1500,
         ownedDeeds: []
     }
 }
@@ -27,8 +29,42 @@ export function roll() {
 }
 
 export function generateTurn(player) {
+    // doubles stuff
     let roll = this.roll();
     let timesRolledDoubles = 0;
+    let currentProperty = this.getBoardPlaceInfo(player.placeOnboard + roll.rolled);
+    let placeOnboard = player.placeOnboard + roll.rolled;
+
+    console.log('current property: ');
+    console.log(currentProperty);
+
+
+    player.placeOnboard = placeOnboard;
+    if (player.money > currentProperty.price && currentProperty.owner == null) {
+    
+        alert("this property is available for purchaae");
+        
+        let answer = prompt("Would you like to purchase this property? Y or y to Purchase or N or to decline");
+        
+        // while (!answer.includes('Y')) {
+        //     answer = prompt("Would you like to purchase this property? Y or y to Purchase or N or to decline");
+        // }
+        if (answer.includes('y') || answer.includes("Y")) {
+            alert(`congratulations ${player.name} you have just purchased ${currentProperty.name} for $${currentProperty.price}`);
+            alert(`$${player.money} - $${currentProperty.price} = $${player.money - currentProperty.price}`);
+            currentProperty.owner = player;
+            console.log(currentProperty);
+            player.money = player.money - currentProperty.price;
+
+            
+        }
+
+        
+    }
+    
+    
+
+
     if (roll.doubles) {
         timesRolledDoubles++;
         console.log(roll);

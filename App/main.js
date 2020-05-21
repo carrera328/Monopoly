@@ -8,6 +8,7 @@ import schema from "./schema.js";
 
 // create 2 players
 
-console.log(helper.getBoardPlaceInfo(3));
+//console.log(helper.getBoardPlaceInfo(3));
 let sal = new helper.Player("Sal");
 helper.generateTurn(sal, helper.roll());
+console.log(schema.Board);
