@@ -29,7 +29,7 @@ export function roll() {
 }
 
 export function generateTurn(player) {
-    // doubles stuff
+    
     let roll = this.roll();
     let timesRolledDoubles = 0;
     let currentProperty = this.getBoardPlaceInfo(player.placeOnboard + roll.rolled);
@@ -38,17 +38,13 @@ export function generateTurn(player) {
     console.log('current property: ');
     console.log(currentProperty);
 
-
     player.placeOnboard = placeOnboard;
     if (player.money > currentProperty.price && currentProperty.owner == null) {
-    
         alert("this property is available for purchaae");
         
         let answer = prompt("Would you like to purchase this property? Y or y to Purchase or N or to decline");
-        
-        // while (!answer.includes('Y')) {
-        //     answer = prompt("Would you like to purchase this property? Y or y to Purchase or N or to decline");
-        // }
+
+        // buying property
         if (answer.includes('y') || answer.includes("Y")) {
             alert(`congratulations ${player.name} you have just purchased ${currentProperty.name} for $${currentProperty.price}`);
             alert(`$${player.money} - $${currentProperty.price} = $${player.money - currentProperty.price}`);
@@ -57,8 +53,10 @@ export function generateTurn(player) {
             player.money = player.money - currentProperty.price;
 
             
+        } else {
+            // trigger auction
         }
-
+         
         
     }
     
