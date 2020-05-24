@@ -1,11 +1,14 @@
 import * as schema from './schema.js';
+import * as controller from './controller.js';
+import * as main from './main.js';
+
 export function test() {
     return document.createElement("h1");
 }
 
-export function getBoardPlaceInfo(boardPlace) {
+export function getBoardPlaceInfo(boardPlace, copyBoard) {
    // console.log(schema.default.Board[boardPlace]);
-    return schema.default.Board[boardPlace];            
+    return copyBoard[boardPlace];            
 }
 
 export function Player(name) {
@@ -28,11 +31,18 @@ export function roll() {
     }
 }
 
-export function generateTurn(player) {
+export function playerBoard(templateBoard) {
+    console.log('this is template board');
+    console.log(templateBoard);
+    let newBoard = JSON.parse(JSON.stringify(templateBoard));
+    return newBoard;
+}
+
+export function generateTurn(player, gameBoard) {
     
     let roll = this.roll();
     let timesRolledDoubles = 0;
-    let currentProperty = this.getBoardPlaceInfo(player.placeOnboard + roll.rolled);
+    let currentProperty = this.getBoardPlaceInfo(player.placeOnboard + roll.rolled, gameBoard);
     let placeOnboard = player.placeOnboard + roll.rolled;
 
     console.log('current property: ');
@@ -45,12 +55,13 @@ export function generateTurn(player) {
         let answer = prompt("Would you like to purchase this property? Y or y to Purchase or N or to decline");
 
         // buying property
-        if (answer.includes('y') || answer.includes("Y")) {
+        if (answer && (answer.includes('y') || answer.includes("Y"))) {
             alert(`congratulations ${player.name} you have just purchased ${currentProperty.name} for $${currentProperty.price}`);
             alert(`$${player.money} - $${currentProperty.price} = $${player.money - currentProperty.price}`);
             currentProperty.owner = player;
             console.log(currentProperty);
             player.money = player.money - currentProperty.price;
+            console.log('' == true);
 
             
         } else {
@@ -60,9 +71,6 @@ export function generateTurn(player) {
         
     }
     
-    
-
-
     if (roll.doubles) {
         timesRolledDoubles++;
         console.log(roll);
