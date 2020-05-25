@@ -424,7 +424,7 @@ export default
             hotelCost: 200,
             numHouses: 0,
             numHotels: 0,
-            color: "Dark Blue"
+            color: "Blue"
         },
         {
             price: 400, 
@@ -444,7 +444,7 @@ export default
             hotelCost: 200,
             numHouses: 0,
             numHotels: 0,
-            color: "Dark Blue"
+            color: "Blue"
         }
     ]
 }

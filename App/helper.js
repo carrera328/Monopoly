@@ -43,31 +43,26 @@ export function generateTurn(player, gameBoard) {
     let roll = this.roll();
     let timesRolledDoubles = 0;
     let currentProperty = this.getBoardPlaceInfo(player.placeOnboard + roll.rolled, gameBoard);
+
     let placeOnboard = player.placeOnboard + roll.rolled;
-    
+    console.log(player.name + " rolled a " + roll.rolled);
+    player.placeOnboard = placeOnboard;
     console.log('current property: ');
     console.log(currentProperty);
-
-    player.placeOnboard = placeOnboard;
-    if (player.money > currentProperty.price && currentProperty.owner == null) {
-        alert("this property is available for purchaae");
-        
-        let answer = prompt("Would you like to purchase this property? Y or y to Purchase or N or to decline");
-
-        // buying property
-        if (answer && (answer.includes('y') || answer.includes("Y"))) {
-            alert(`congratulations ${player.name} you have just purchased ${currentProperty.name} for $${currentProperty.price}`);
-            alert(`$${player.money} - $${currentProperty.price} = $${player.money - currentProperty.price}`);
-            currentProperty.owner = player;
-            console.log(currentProperty);
-            player.money = player.money - currentProperty.price;
-            console.log('' == true);
-
-            
-        } else {
-            // trigger auction
+    console.log('current place on board');
+    console.log(player.placeOnboard);
+    console.log('total spaces on board ' + gameBoard.length);
+    
+    if (player.placeOnboard > gameBoard.length - 12) {
+        if (player.placeOnboard  > gameBoard.length) {
+            player.placeOnboard = (player.placeOnboard + roll.rolled) - gameBoard.length;
         }
+    } else {
+        player.placeOnboard = placeOnboard;
     }
+    
+    
+    this.prepareModal(player,gameBoard);
     
     if (roll.doubles) {
         timesRolledDoubles++;
@@ -97,7 +92,7 @@ export function generateTurn(player, gameBoard) {
 
 export function prepareModal(player, gameBoard) {
     let modal = document.getElementById("mainModal");
-    if (modal.style.display === "none") {
+    // if (modal.style.display === "none") {
         modal.style.display = "block";
         let heading = document.getElementById("nameOfBoardPlace");
         let price = document.getElementsByClassName("upperStuff");
@@ -125,9 +120,9 @@ export function prepareModal(player, gameBoard) {
                 liBoxes[i].innerHTML = `Rent with Hotel $${rentValues[i]}`;
             }
         }
-    } else {
-        modal.style.display = "none";
-    }
+    // } else {
+    //     modal.style.display = "none";
+    // }
 
     // rent info 
 

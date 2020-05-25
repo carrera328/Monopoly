@@ -18,15 +18,19 @@ export function hello() {
 // });
 
 console.log(document.getElementsByClassName("btn"));
-for (let i = 0; i < document.getElementsByClassName("btn").length; i++) {
-    document.getElementsByClassName("btn")[i].addEventListener('click', hello);
-}
+// for (let i = 0; i < document.getElementsByClassName("btn").length; i++) {
+//     document.getElementsByClassName("btn")[i].addEventListener('click', hello);
+// }
 let gameBoard = helper.playerBoard(schema.Board);
 
 //console.log(helper.getBoardPlaceInfo(3));
 let sal = new helper.Player("Sal");
 helper.generateTurn(sal, gameBoard);
 console.log(schema.Board);
+
+document.getElementsByClassName("btn")[3].addEventListener('click', function() {
+    helper.generateTurn(sal, gameBoard);
+});
 
 document.getElementById("mainBtn").addEventListener('click', function() {
     
