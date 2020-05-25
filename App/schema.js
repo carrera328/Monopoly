@@ -24,7 +24,7 @@ export default
             hotelCost: 50,
             numHouses: 0,
             numHotels: 0,
-            color: "Dark Purple"
+            color: "SaddleBrown"
         },
         {
             price: 60, 
@@ -44,7 +44,7 @@ export default
             hotelCost: 50,
             numHouses: 0,
             numHotels: 0,
-            color: "Dark Purple"
+            color: "SaddleBrown"
         },
         {
             price: 100, 
@@ -64,7 +64,7 @@ export default
             hotelCost: 50,
             numHouses: 0,
             numHotels: 0,
-            color: "Light Blue"
+            color: "SkyBlue"
         },
         {
             price: 100, 
@@ -84,7 +84,7 @@ export default
             hotelCost: 50,
             numHouses: 0,
             numHotels: 0,
-            color: "Light Blue"
+            color: "SkyBlue"
         },
         {
             price: 120, 
@@ -104,7 +104,7 @@ export default
             hotelCost: 50,
             numHouses: 0,
             numHotels: 0,
-            color: "Light Blue"
+            color: "SkyBlue"
         },
         {
             price: 140, 
@@ -124,7 +124,7 @@ export default
             hotelCost: 100,
             numHouses: 0,
             numHotels: 0,
-            color: "Pink"
+            color: "DarkOrchid"
         },
         {
             price: 140, 
@@ -144,7 +144,7 @@ export default
             hotelCost: 100,
             numHouses: 0,
             numHotels: 0,
-            color: "Pink"
+            color: "DarkOrchid"
         },
         {
             price: 160, 
@@ -164,7 +164,7 @@ export default
             hotelCost: 100,
             numHouses: 0,
             numHotels: 0,
-            color: "Pink"
+            color: "DarkOrchid"
         },
         {
             price: 180, 

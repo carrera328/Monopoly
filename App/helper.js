@@ -44,7 +44,7 @@ export function generateTurn(player, gameBoard) {
     let timesRolledDoubles = 0;
     let currentProperty = this.getBoardPlaceInfo(player.placeOnboard + roll.rolled, gameBoard);
     let placeOnboard = player.placeOnboard + roll.rolled;
-
+    
     console.log('current property: ');
     console.log(currentProperty);
 
@@ -67,8 +67,6 @@ export function generateTurn(player, gameBoard) {
         } else {
             // trigger auction
         }
-         
-        
     }
     
     if (roll.doubles) {
@@ -93,4 +91,49 @@ export function generateTurn(player, gameBoard) {
             
         }
     }
+}
+
+// prep modal
+
+export function prepareModal(player, gameBoard) {
+    let modal = document.getElementById("mainModal");
+    if (modal.style.display === "none") {
+        modal.style.display = "block";
+        let heading = document.getElementById("nameOfBoardPlace");
+        let price = document.getElementsByClassName("upperStuff");
+        price.innerHTML = gameBoard[player.placeOnboard].price;
+        heading.innerHTML = gameBoard[player.placeOnboard].name;
+        let liBoxes = document.getElementsByTagName("li");
+        let currentProperty = this.getBoardPlaceInfo(player.placeOnboard, gameBoard);
+        document.getElementById("mainModal").style.backgroundColor = currentProperty.color;
+        console.log(currentProperty);
+        console.log(liBoxes);
+        console.log(currentProperty.rent);
+        let  rentValues = Object.values(Object.values(currentProperty.rent));
+        rentValues = rentValues.sort((a, b) => {return a - b});
+        console.log(rentValues);
+        let secondHeading = document.getElementsByClassName("upperStuff")[0];
+        secondHeading.innerHTML = '$'+currentProperty.price;
+        for (let i = 0; i < liBoxes.length; i++) {
+            if (i != 0 && i != 6 && i!= 1) {
+                liBoxes[i].innerHTML = ` Rent with ${i - 1} house(s) ${rentValues[i]}` ;
+            } else if (i == 1) {
+                liBoxes[i].innerHTML = `Rent with Monopoly $${rentValues[i]}`;
+            } else if (i == 0) {
+                liBoxes[i].innerHTML = `Rent $${rentValues[i]}`;
+            } else {
+                liBoxes[i].innerHTML = `Rent with Hotel $${rentValues[i]}`;
+            }
+        }
+    } else {
+        modal.style.display = "none";
+    }
+
+    // rent info 
+
+    
+
+    
+    
+
 }

@@ -2,21 +2,26 @@ body {
     background-color: grey;
     height: 100vh;
     min-height: 100vh;
+    position: relative;
+    top: 5rem;
     
 }
 
 .modal {
     width: 800px;
-    position: relative;
+    position: absolute;
     background-color: green;
     margin-right: 0;
     min-height: 200px;
     height: fit-content;
     left: 50%;
-    top: 25%;
+    top: 40%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+    color: black;
+    border-style: solid;
+    border-width: 2px;
     
 }
 
@@ -24,7 +29,8 @@ body {
     background-color: yellow;
     width:fit-content;
     margin: 0;
-    position: absolute;
+    position: relative;
+    height: fit-content;
     left: 50%;
     bottom: 5%;
     -webkit-transform: translate(-50%, -50%);
@@ -42,4 +48,52 @@ body {
 
 .upperStuff {
     height: 40px;
+}
+
+#rentInfo {
+    display: block;
+    position: relative;
+    background-color: white;
+    width: 25%;
+    left: 50%;
+    top: 8.5rem;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: 100%;
+    margin-top: 5%;
+    font-weight: 25rem !important;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-bottom: .25rem;
+    padding-top: 1.1rem;
+    margin-bottom: 2.5rem;
+    border-style: double;
+    border-width: 5px;
+    
+
+    
+}
+
+#rent {
+    /* background-color: gold; */
+    display: block;
+    position: relative;
+    padding-left: 0;
+    margin-top: 0;
+    width: 100%;
+    font-weight: 25rem !important;
+    
+}
+
+
+li {
+    display: block;
+    /* background-color: blue; */
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    color: black;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    
 }
