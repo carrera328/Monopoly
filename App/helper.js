@@ -38,8 +38,7 @@ export function playerBoard(templateBoard) {
     return newBoard;
 }
 
-export function generateTurn(player, gameBoard) {
-    
+export function generateTurn(player, gameBoard) { 
     let roll = this.roll();
     let timesRolledDoubles = 0;
     let currentProperty = this.getBoardPlaceInfo(player.placeOnboard + roll.rolled, gameBoard);
@@ -61,9 +60,9 @@ export function generateTurn(player, gameBoard) {
         player.placeOnboard = placeOnboard;
     }
     
-    
+    // prep the modal
     this.prepareModal(player,gameBoard);
-    
+
     if (roll.doubles) {
         timesRolledDoubles++;
         console.log(roll);
@@ -111,7 +110,7 @@ export function prepareModal(player, gameBoard) {
         secondHeading.innerHTML = '$'+currentProperty.price;
         for (let i = 0; i < liBoxes.length; i++) {
             if (i != 0 && i != 6 && i!= 1) {
-                liBoxes[i].innerHTML = ` Rent with ${i - 1} house(s) ${rentValues[i]}` ;
+                liBoxes[i].innerHTML = ` Rent with ${i - 1} house(s) $${rentValues[i]}` ;
             } else if (i == 1) {
                 liBoxes[i].innerHTML = `Rent with Monopoly $${rentValues[i]}`;
             } else if (i == 0) {
@@ -120,15 +119,12 @@ export function prepareModal(player, gameBoard) {
                 liBoxes[i].innerHTML = `Rent with Hotel $${rentValues[i]}`;
             }
         }
+
+        console.log(document.getElementsByClassName("btn")[2].addEventListener('click', function() {
+            modal.style.display = 'none';
+        }));
     // } else {
     //     modal.style.display = "none";
     // }
-
     // rent info 
-
-    
-
-    
-    
-
 }

@@ -9,9 +9,19 @@ import schema from "./schema.js";
 
 
 // create 2 players
-export function hello() {
-    alert("HELLO VIETNAM!")
+function createPlayers(listOfPlayers) {
+    let createdPlayers = [];
+    if (listOfPlayers) {
+        for (let i = 0; i < listOfPlayers.length; i++) {
+            createdPlayers.push(helper.Player(listOfPlayers[i]));         
+        }
+        return createdPlayers;
+    }
+
+    return;
 }
+
+
 
 // document.getElementsByClassName("btn").forEach(element => {
 //     element.addEventListener('click', hello);    
@@ -36,3 +46,8 @@ document.getElementById("mainBtn").addEventListener('click', function() {
     
     helper.prepareModal(sal, gameBoard);
 });
+
+// hiding modal while working on front page
+document.getElementById("mainModal").style.display = 'none';
+
+console.log(createPlayers(['Casey', 'Sal', 'Dash']));
