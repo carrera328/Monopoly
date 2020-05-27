@@ -21,8 +21,6 @@ function createPlayers(listOfPlayers) {
     return;
 }
 
-
-
 // document.getElementsByClassName("btn").forEach(element => {
 //     element.addEventListener('click', hello);    
 // });
@@ -50,4 +48,4 @@ document.getElementById("mainBtn").addEventListener('click', function() {
 // hiding modal while working on front page
 document.getElementById("mainModal").style.display = 'none';
 
-console.log(createPlayers(['Casey', 'Sal', 'Dash']));
+let arrayOfInputs = document.getElementsByClassName("inputs");
