@@ -2,8 +2,22 @@ import * as schema from './schema.js';
 import * as controller from './controller.js';
 import * as main from './main.js';
 
-export function test() {
-    return document.createElement("h1");
+export function createPlayers() {
+    // ask user how many players are playing and then create the players based on name
+    let numPlayers = prompt("How many players are players are player please enter 1 - 4 players");
+    
+    if (isNaN(numPlayers) || (numPlayers < 1 || numPlayers > 4)) {
+        do {
+            numPlayers = prompt("enter a valid number of players pls");
+        } while (isNaN(numPlayers) || (numPlayers < 1 || numPlayers > 4));
+    }
+    alert(`Number of players for this session: ${numPlayers}`);
+    let numberPlayersArr = [];
+    for (let i = 0; i < numPlayers; i++) {
+        numberPlayersArr[i] = new Player(prompt(`Please enter player ${i + 1}\'s name`));
+    }
+    console.log(numberPlayersArr);
+    return numberPlayersArr;
 }
 
 export function getBoardPlaceInfo(boardPlace, copyBoard) {

@@ -49,3 +49,8 @@ document.getElementById("mainBtn").addEventListener('click', function() {
 document.getElementById("mainModal").style.display = 'none';
 
 let arrayOfInputs = document.getElementsByClassName("inputs");
+console.log(arrayOfInputs);
+
+document.getElementById("submitPlayersBtn").addEventListener('click', function() {
+    helper.createPlayers();
+})
