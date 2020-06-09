@@ -4,11 +4,8 @@ import * as main from './main.js';
 
 
 export function init() {
-    let message = document.getElementById("nameOfBoardPlace").innerHTML;
-    console.log(message);    
-// set timer
+    
+   // let players =  helper.createPlayers();
+    document.getElementById("mainModal").style.display = 'none';
 
-// grab input from fields
-
-// create players and board
 }
