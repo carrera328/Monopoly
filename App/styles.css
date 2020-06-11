@@ -1,5 +1,5 @@
 body {
-    background-color: grey;
+    background-color: darkslategray;
     height: 100vh;
     min-height: 100vh;
     position: relative;
@@ -10,7 +10,7 @@ body {
 .modal {
     width: 800px;
     position: absolute;
-    background-color: green;
+    background-color: darkslateblue;
     margin-right: 0;
     min-height: 200px;
     height: fit-content;
@@ -150,4 +150,28 @@ input {
     left: 50%;
     transform: translate(-50%);
     top: 5em;
+}
+
+#rollButton {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    
+}
+
+#rollModal {
+    display: block;
+    width: 25%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 25rem;
+    transform: translate(-50%, -50%);
+    background-color:darkolivegreen;
+   
+    
+
 }

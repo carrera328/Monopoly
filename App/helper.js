@@ -4,19 +4,25 @@ import * as main from './main.js';
 
 export function createPlayers() {
     // ask user how many players are playing and then create the players based on name
-    let numPlayers = prompt("How many players are players are player please enter 1 - 4 players");
+    // removing this functionality for testing, will create players by hard coding in mean time
+    //let numPlayers = prompt("How many players are players are player please enter 1 - 4 players");
     
+    let numPlayers = 2;
     if (isNaN(numPlayers) || (numPlayers < 1 || numPlayers > 4)) {
         do {
             numPlayers = prompt("enter a valid number of players pls");
         } while (isNaN(numPlayers) || (numPlayers < 1 || numPlayers > 4));
     }
-    alert(`Number of players for this session: ${numPlayers}`);
+    //alert(`Number of players for this session: ${numPlayers}`);
     let numberPlayersArr = [];
     for (let i = 0; i < numPlayers; i++) {
-        numberPlayersArr[i] = new Player(prompt(`Please enter player ${i + 1}\'s name`));
+        //numberPlayersArr[i] = new Player(prompt(`Please enter player ${i + 1}\'s name`));
+        numberPlayersArr[i] = new Player(`Player ${i}`);
     }
+
+    console.log(`Players created`);
     console.log(numberPlayersArr);
+
     return numberPlayersArr;
 }
 
@@ -46,13 +52,17 @@ export function roll() {
 }
 
 export function playerBoard(templateBoard) {
-    console.log('this is template board');
+    
     console.log(templateBoard);
     let newBoard = JSON.parse(JSON.stringify(templateBoard));
+    console.log(newBoard);
     return newBoard;
 }
 
 export function generateTurn(player, gameBoard) { 
+    // open roll modal
+    
+    
     let roll = this.roll();
     let timesRolledDoubles = 0;
     let currentProperty = this.getBoardPlaceInfo(player.placeOnboard + roll.rolled, gameBoard);
@@ -141,4 +151,37 @@ export function prepareModal(player, gameBoard) {
     //     modal.style.display = "none";
     // }
     // rent info 
+}
+
+export function prerRollModal(player, gameBoard) {
+    
+}
+
+export function assignTurn(players) {
+    let firstRollOutcomes = new Map();
+    for (let i in players) {
+        firstRollOutcomes.set(players[i], this.roll().rolled);
+    }
+    console.log(firstRollOutcomes);
+}
+
+// create game object
+
+export function Game(players, board) {
+    let gameOver = false;
+    
+    // who rolls first functionality
+    
+    // generateTurns until one player wins or quit game is clicked
+
+    if (!gameOver) {
+        do {
+            generateTurn(players, board);//
+            for (let i in players) {
+                 
+            } 
+        } while (!gameOver)
+    }
+    
+    // invoke post game
 }
