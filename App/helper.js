@@ -112,7 +112,7 @@ export function generateTurn(player, gameBoard) {
 }
 
 //
-
+//
 // prep modal
 
 export function prepareModal(player, gameBoard) {
