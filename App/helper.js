@@ -110,11 +110,11 @@ export function generateTurn(player, gameBoard) {
         }
     }
 }
-
+//
 //
 //
 // prep modal
-
+//
 export function prepareModal(player, gameBoard) {
     let modal = document.getElementById("mainModal");
     // if (modal.style.display === "none") {
