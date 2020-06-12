@@ -110,14 +110,16 @@ export function generateTurn(player, gameBoard) {
         }
     }
 }
-//
-//
-//
+
 // prep modal
-//
+
 export function prepareModal(player, gameBoard) {
     let modal = document.getElementById("mainModal");
     // if (modal.style.display === "none") {
+        if (player == null) {
+            alert('sal');
+        }
+
         modal.style.display = "block";
         let heading = document.getElementById("nameOfBoardPlace");
         let price = document.getElementsByClassName("upperStuff");
@@ -156,7 +158,7 @@ export function prepareModal(player, gameBoard) {
 }
 
 export function prerRollModal(player, gameBoard) {
-    
+
 }
 
 export function assignTurn(players) {
@@ -180,7 +182,7 @@ export function Game(players, board) {
         do {
             generateTurn(players, board);//
             for (let i in players) {
-                 
+
             } 
         } while (!gameOver)
     }
