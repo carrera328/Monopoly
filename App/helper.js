@@ -116,9 +116,7 @@ export function generateTurn(player, gameBoard) {
 export function prepareModal(player, gameBoard) {
     let modal = document.getElementById("mainModal");
     // if (modal.style.display === "none") {
-        if (player == null) {
-            alert('sal');
-        }
+        
 
         modal.style.display = "block";
         let heading = document.getElementById("nameOfBoardPlace");
