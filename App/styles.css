@@ -186,6 +186,7 @@ input {
 }
 
 .newGameModal {
+    display: flex;
     background-color: darkolivegreen;
     position: relative;
     left: 50%;
@@ -230,3 +231,6 @@ input {
     transform: translate(-50%);
 }
 
+.hide {
+    display: none !important;
+}

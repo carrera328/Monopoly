@@ -178,10 +178,10 @@ export function Game(players, board) {
 
     if (!gameOver) {
         do {
-            generateTurn(players, board);//
-            for (let i in players) {
+            //generateTurn(players, board);//
+            //for (let i in players) {
 
-            } 
+            
         } while (!gameOver)
     }
     
