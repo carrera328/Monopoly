@@ -189,3 +189,11 @@ export function Game(players, board) {
     
     // invoke post game
 }
+
+
+export function generateInputs() {
+    let inputsToCreate = 0;
+    let numOfInputs = document.getElementById("numPlayers").value;
+    inputsToCreate = numOfInputs;
+    alert(inputsToCreate);
+}
