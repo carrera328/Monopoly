@@ -26,6 +26,7 @@ export function createPlayers() {
     return numberPlayersArr;
 }
 
+
 export function getBoardPlaceInfo(boardPlace, copyBoard) {
    // console.log(schema.default.Board[boardPlace]);
     return copyBoard[boardPlace];            
@@ -50,6 +51,7 @@ export function roll() {
         "doubles": die1 == die2 ? true:false
     }
 }
+
 
 export function playerBoard(templateBoard) {
     

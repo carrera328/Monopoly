@@ -1,5 +1,6 @@
 @font-face {
     font-family: "oldEnglish";
+    font-weight: lighter;
     src: url(./Assets/cloister-black/CloisterBlack.ttf);
 }
 
@@ -231,6 +232,48 @@ input {
     transform: translate(-50%);
 }
 
+.inputPlayersModal {
+    font-family: "oldEnglish";
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 40%;
+    background-color: darkred;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+}
+
+.inputPlayersModal #playerInputHeader {
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.inputPlayersModal select {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 10%;
+}
+
+.inputPlayersModal button {
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 2rem;
+    width: 10%;
+}
+
+
+/* utilities */
+
+.border {
+    border-style: double;
+    border-width: .3rem;
+}
 .hide {
     display: none !important;
 }
