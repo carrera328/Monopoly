@@ -190,6 +190,9 @@ export function Game(players, board) {
     // invoke post game
 }
 
+export function handler() {
+    generateInputs();
+}
 
 export function generateInputs() {
     let inputsToCreate = 0;
