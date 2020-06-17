@@ -206,6 +206,9 @@ export function generateInputs() {
         container.appendChild(input);
     }
     back.classList.remove('hide');
+    document.getElementById("nextBtn").removeEventListener('click', () => {
+        helper.generateInputs();
+    });
 
     
     
