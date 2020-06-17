@@ -267,6 +267,17 @@ input {
     width: 10%;
 }
 
+#playerInputContainer {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+#playerInputContainer input {
+    margin-bottom: 1rem;
+}
+
+
 
 /* utilities */
 

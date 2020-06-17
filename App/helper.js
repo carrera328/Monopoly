@@ -196,4 +196,18 @@ export function generateInputs() {
     let numOfInputs = document.getElementById("numPlayers").value;
     inputsToCreate = numOfInputs;
     alert(inputsToCreate);
+    let container = document.getElementById("playerInputContainer");
+    let back = document.getElementById("backBtn");
+    container.classList.remove("hide");
+    for (let i = 0; i < inputsToCreate; i++) {
+        let input = document.createElement("input");
+        input.setAttribute('type', 'text');
+        input.setAttribute('placeholder', `Player ${i + 1}`);
+        container.appendChild(input);
+    }
+    back.classList.remove('hide');
+
+    
+    
+
 }
