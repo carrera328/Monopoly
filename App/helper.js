@@ -208,10 +208,14 @@ export function generateInputs() {
         let input = document.createElement("input");
         input.setAttribute('type', 'text');
         input.setAttribute('placeholder', `Player ${i + 1}`);
+        input.setAttribute('id', `input${i + 1}`);
         container.appendChild(input);
     }
     back.addEventListener("click", () => {
     })
     next.classList.add('hide');
     document.getElementsByClassName("enterBackBtns")[0].classList.remove('hide');
+    document.getElementById('enter').addEventListener('click', () => {
+        alert(document.getElementById('input1').value);
+    })
 }

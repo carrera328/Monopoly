@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 @font-face {
     font-family: "oldEnglish";
     font-weight: lighter;
@@ -255,8 +261,10 @@ input {
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    width: 10%;
+    width: 20%;
     margin-bottom: 2rem;
+    height: 2.5rem;
+    
 }
 
 .inputPlayersModal button {
@@ -273,22 +281,26 @@ input {
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: relative;
 }
 
 #playerInputContainer input {
     margin-bottom: 1rem;
     width: 100%;
+    padding:0;
 }
 
-.enterBackBtns button{
-    
-    display:inline-block;
-    position: relative;
-    
+.enterBackBtns {
+    display: block;
+    width: 100%;
+    position: relative !important;
+    box-sizing: border-box;
 }
 
-
-
+.enterBackBtns button {
+    width: 60%;
+    height: 2.5rem;
+}
 
 /* utilities */
 
