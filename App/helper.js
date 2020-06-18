@@ -201,6 +201,8 @@ export function generateInputs() {
     alert(inputsToCreate);
     let container = document.getElementById("playerInputContainer");
     let back = document.getElementById("backBtn");
+    let next = document.getElementById("nextBtn");
+    let enter = document.getElementById("enter");
     container.classList.remove("hide");
     for (let i = 0; i < inputsToCreate; i++) {
         let input = document.createElement("input");
@@ -208,12 +210,8 @@ export function generateInputs() {
         input.setAttribute('placeholder', `Player ${i + 1}`);
         container.appendChild(input);
     }
-    back.classList.remove('hide');
-    document.getElementById("nextBtn").removeEventListener('click', () => {
-        helper.generateInputs();
-    });
-
-    
-    
-
+    back.addEventListener("click", () => {
+    })
+    next.classList.add('hide');
+    document.getElementsByClassName("enterBackBtns")[0].classList.remove('hide');
 }
