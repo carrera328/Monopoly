@@ -7,6 +7,7 @@ import * as helper from "./helper.js";
 import schema from "./schema.js";
 
 controller.init();
+helper.show('mainModal');
 
 
 

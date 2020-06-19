@@ -217,5 +217,33 @@ export function generateInputs() {
     document.getElementsByClassName("enterBackBtns")[0].classList.remove('hide');
     document.getElementById('enter').addEventListener('click', () => {
         alert(document.getElementById('input1').value);
-    })
+    });
+
+    let parent = document.getElementById('inputPlayerParent');
+    console.log(parent);
+
+    
+}
+
+export function hide(modalId) {
+    if (modalId) {
+        try {
+            document.getElementById(modalId).classList.add('hide');
+        } catch (err) {
+            alert(err.message);
+        }
+    } else {
+        alert('No id provided');
+    }
+}
+
+export function show(modalId) {
+    if (modalId) {
+        if (document.getElementById(modalId).classList.contains('hide')) {
+            alert('this element has hide class applied already');
+        } else {
+            alert(`Hiding ${document.getElementById(modalId)}`);
+            document.getElementById(modalId).classList.remove('hide');
+        }
+    }
 }

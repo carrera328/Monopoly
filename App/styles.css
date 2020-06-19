@@ -290,16 +290,32 @@ input {
     padding:0;
 }
 
-.enterBackBtns {
-    display: block;
-    width: 100%;
-    position: relative !important;
-    box-sizing: border-box;
+#inputRender {
+    position: absolute;
+    background-color: blue;
+    left: 50%;
+    top:50%;
+    width: 40%;
+    height: 50%;
+    transform: translate(-50%, -50%);
 }
 
+.enterBackBtns {
+    background-color: yellow;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%, -90%);
+} 
+
 .enterBackBtns button {
-    width: 60%;
-    height: 2.5rem;
+    display: inline-block;
+}
+
+#inputRender h1 {
+    padding-top: 1rem;
+    text-align: center;
 }
 
 /* utilities */

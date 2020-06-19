@@ -45,7 +45,7 @@
         <div class="firstRollModal">
 
         </div>
-        <div class="inputPlayersModal border">
+        <div class="inputPlayersModal border" id ="inputPlayerParent">
             <!-- picklist to choose num players -->
             <h1 id="playerInputHeader">Please Enter Number Players</h1>
             <label for="numPlayers"></label><br>
@@ -58,12 +58,15 @@
                 </select>
                 <button id="nextBtn">Next</button>
             </div>
+        </div>
+        <div id ="inputRender hide">
+            <h1 class="hide">Enter Players Names</h1>
             <div class="hide" id="playerInputContainer">
-                
-            </div>
+            
+            </div> 
             <div class="enterBackBtns hide"> 
-                <button id="backBtn">Back</button>
-                <button id="enter">Enter</button>
+                <button class="hide" id="backBtn">Back</button>
+                <button class="hide" id="enter">Enter</button>
             </div>
             
         </div>
