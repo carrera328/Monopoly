@@ -263,3 +263,7 @@ export function enterCreatePlayersModal() {
 export function whoRollsFirst() {
     
 }
+
+export function handleNewTurn(player, board) {
+    
+}
