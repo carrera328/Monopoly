@@ -247,3 +247,19 @@ export function show(modalId) {
         }
     }
 }
+
+export function handleNewGameModal() {
+
+}
+
+export function handleEnterNumPlayersModal() {
+
+}
+
+export function enterCreatePlayersModal() {
+
+}
+
+export function whoRollsFirst() {
+    
+}
