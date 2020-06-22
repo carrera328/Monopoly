@@ -9,7 +9,7 @@
         <script type="module" src="main.js"></script>
     </head>
     <body>
-        <!-- get player info -->
+        <!-- turn modal -->
         <div id="mainModal" class="modal hide">
             <h1 id="nameOfBoardPlace">Modal</h1>
             <div>
@@ -33,7 +33,7 @@
                 <button class="btn">Roll Again</button>
             </div>
         </div>
-        
+        <!-- pre-game modals, listed in order -->
         <div class="newGameModal hide">
             <h1 id="newGameModalHeader">Welcome To Monopoly</h1>
             <div class ="newGameButtons">
@@ -41,11 +41,7 @@
                 <button>New Game</button>
             </div>
         </div>
-        
-        <div class="firstRollModal">
-
-        </div>
-        <div class="inputPlayersModal border" id ="inputPlayerParent">
+        <div class="inputPlayersModal border hide" id ="inputPlayerParent">
             <!-- picklist to choose num players -->
             <h1 id="playerInputHeader">Please Enter Number Players</h1>
             <label for="numPlayers"></label><br>
@@ -59,10 +55,10 @@
                 <button id="nextBtn">Next</button>
             </div>
         </div>
-        <div id ="inputRender hide">
+        <div id ="inputRender" class="hide">
             <h1 class="hide">Enter Players Names</h1>
             <div class="hide" id="playerInputContainer">
-            
+                
             </div> 
             <div class="enterBackBtns hide"> 
                 <button class="hide" id="backBtn">Back</button>
@@ -70,9 +66,8 @@
             </div>
             
         </div>
-        <div class = "newTurnModal">
-
+        <div class="firstRollModal">
+            
         </div>
-
     </body>
 </html>
