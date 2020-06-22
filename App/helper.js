@@ -2,6 +2,12 @@ import * as schema from './schema.js';
 import * as controller from './controller.js';
 import * as main from './main.js';
 
+export let GLOBALBOOLS = {
+    newModalClicked: false,
+    numPlayersSelected: false
+}
+
+
 export function createPlayers() {
     // ask user how many players are playing and then create the players based on name
     // removing this functionality for testing, will create players by hard coding in mean time
@@ -240,24 +246,38 @@ export function hide(modalId) {
 export function show(modalId) {
     if (modalId) {
         if (document.getElementById(modalId).classList.contains('hide')) {
-            alert('this element has hide class applied already');
-        } else {
-            alert(`Hiding ${document.getElementById(modalId)}`);
             document.getElementById(modalId).classList.remove('hide');
+            alert(`Displaying ${document.getElementById(modalId).id}`);
+        } else {
+          alert('this item is already showing');  
         }
     }
 }
 
 export function handleNewGameModal() {
-
+    this.show('newGameModal');
+    let newGame = document.getElementById("newGameBtn");
+    let loadGame = document.getElementById("loadGameBtn");
+    alert(this.GLOBALBOOLS.newModalClicked);
+    newGame.addEventListener('click', function() {
+        alert('newGame clicked');
+        GLOBALBOOLS.newModalClicked = true;
+        handleEnterNumPlayersModal();
+        
+    })
 }
 
 export function handleEnterNumPlayersModal() {
-
+    if (GLOBALBOOLS.newModalClicked) {
+        enterCreatePlayersModal();
+    } else {
+        alert('Tests are passing');
+    }
 }
 
 export function enterCreatePlayersModal() {
-
+    hide('newGameModal');
+    show('inputPlayerParent');
 }
 
 export function whoRollsFirst() {

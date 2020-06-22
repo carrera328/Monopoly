@@ -9,5 +9,7 @@ export function init() {
     let board = helper.playerBoard(schema.Board);
     helper.generateTurn(players[0], board);
     document.getElementById("nextBtn").addEventListener('click', () => {helper.generateInputs()});
+    helper.handleNewGameModal();
+    
     
 }
