@@ -282,7 +282,7 @@ input {
     flex-direction: column;
     width: 100%;
     position: relative;
-}`
+}
 
 #playerInputContainer input {
     margin-bottom: 1rem;
