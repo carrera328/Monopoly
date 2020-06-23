@@ -203,7 +203,7 @@ input {
     margin:0;
     width: 70%;
     height: 40%;
-    font-family: "oldEnglish";
+    font-family: "Fira Code";
 
 }
 
@@ -239,12 +239,12 @@ input {
 }
 
 .inputPlayersModal {
-    font-family: "oldEnglish";
+    font-family: "Fira Code";
     display: flex;
     flex-direction: column;
     position: relative;
     width: 40%;
-    background-color: darkred;
+    background-color: lightcoral;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -274,7 +274,8 @@ input {
     transform: translate(-50%);
     margin-top: 2rem;
     margin-bottom: 2rem;
-    width: 10%;
+    height: 2rem;
+    width: 20%;
 }
 
 #playerInputContainer {
@@ -286,31 +287,40 @@ input {
 
 #playerInputContainer input {
     margin-bottom: 1rem;
-    width: 100%;
+    width: 75%;
     padding:0;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: .5rem;
 }
 
 #inputRender {
+    display:flex;
+    flex-direction: column;
     position: absolute;
-    background-color: blue;
+    background-color:lightcyan;
     left: 50%;
     top:50%;
     width: 40%;
-    height: 50%;
+    min-height: 50%;
     transform: translate(-50%, -50%);
 }
 
 .enterBackBtns {
-    background-color: yellow;
+    margin-top: 3rem;
     display: inline-block;
     position: absolute;
     left: 50%;
-    bottom: 10%;
-    transform: translate(-50%, -90%);
+    bottom: 5%;
+    transform: translate(-50%);
+
 } 
 
 .enterBackBtns button {
     display: inline-block;
+    height: 3rem;
+    width: 10rem;
+    margin: .5rem;
 }
 
 #inputRender h1 {
