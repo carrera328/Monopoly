@@ -204,7 +204,6 @@ export function generateInputs() {
     let inputsToCreate = 0;
     let numOfInputs = document.getElementById("numPlayers").value;
     inputsToCreate = numOfInputs;
-    alert(inputsToCreate);
     let container = document.getElementById("playerInputContainer");
     let back = document.getElementById("backBtn");
     let next = document.getElementById("nextBtn");
@@ -216,19 +215,7 @@ export function generateInputs() {
         input.setAttribute('placeholder', `Player ${i + 1}`);
         input.setAttribute('id', `input${i + 1}`);
         container.appendChild(input);
-    }
-    back.addEventListener("click", () => {
-    })
-    next.classList.add('hide');
-    document.getElementsByClassName("enterBackBtns")[0].classList.remove('hide');
-    document.getElementById('enter').addEventListener('click', () => {
-        alert(document.getElementById('input1').value);
-    });
-
-    let parent = document.getElementById('inputPlayerParent');
-    console.log(parent);
-
-    
+    }    
 }
 
 export function hide(modalId) {
@@ -247,7 +234,7 @@ export function show(modalId) {
     if (modalId) {
         if (document.getElementById(modalId).classList.contains('hide')) {
             document.getElementById(modalId).classList.remove('hide');
-            alert(`Displaying ${document.getElementById(modalId).id}`);
+            console.log(`Displaying ${document.getElementById(modalId).id}`);
         } else {
           alert('this item is already showing');  
         }
@@ -263,21 +250,34 @@ export function handleNewGameModal() {
         alert('newGame clicked');
         GLOBALBOOLS.newModalClicked = true;
         handleEnterNumPlayersModal();
-        
     })
 }
 
 export function handleEnterNumPlayersModal() {
+    let nextBtn = document.getElementById('nextBtn');
     if (GLOBALBOOLS.newModalClicked) {
-        enterCreatePlayersModal();
+        hide('newGameModal');
+        show('inputPlayerParent');
+        nextBtn.addEventListener('click', () => {
+            GLOBALBOOLS.numPlayersSelected = true;
+            enterCreatePlayersModal();
+        })
+
     } else {
         alert('Tests are passing');
     }
 }
 
 export function enterCreatePlayersModal() {
-    hide('newGameModal');
-    show('inputPlayerParent');
+    if (GLOBALBOOLS.numPlayersSelected = true) {
+        hide('inputPlayerParent');
+        show('inputHead');
+        show('playerInputContainer');
+        show('inputRender');
+        show('enterBackBtns');
+        generateInputs();
+        
+    }
 }
 
 export function whoRollsFirst() {
