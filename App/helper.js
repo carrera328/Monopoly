@@ -7,6 +7,7 @@ export let GLOBALBOOLS = {
     numPlayersSelected: false
 }
 
+export let playersThisGame = [];
 
 export function createPlayers() {
     // ask user how many players are playing and then create the players based on name
@@ -69,8 +70,6 @@ export function playerBoard(templateBoard) {
 
 export function generateTurn(player, gameBoard) { 
     // open roll modal
-    
-    
     let roll = this.roll();
     let timesRolledDoubles = 0;
     let currentProperty = this.getBoardPlaceInfo(player.placeOnboard + roll.rolled, gameBoard);
@@ -181,7 +180,7 @@ export function Game(players, board) {
     let gameOver = false;
     
     // who rolls first functionality
-    
+
     // generateTurns until one player wins or quit game is clicked
 
     if (!gameOver) {
@@ -215,7 +214,15 @@ export function generateInputs() {
         input.setAttribute('placeholder', `Player ${i + 1}`);
         input.setAttribute('id', `input${i + 1}`);
         container.appendChild(input);
-    }    
+    }
+    // alternate way to create players
+    enter.addEventListener('click', () => {
+        for (let i = 0; i < inputsToCreate; i++) {
+            playersThisGame.push(new Player(document.getElementById(`input${i + 1}`).value));
+            alert(playersThisGame[i].name);
+        }
+    });
+    
 }
 
 export function hide(modalId) {
@@ -245,9 +252,8 @@ export function handleNewGameModal() {
     this.show('newGameModal');
     let newGame = document.getElementById("newGameBtn");
     let loadGame = document.getElementById("loadGameBtn");
-    alert(this.GLOBALBOOLS.newModalClicked);
     newGame.addEventListener('click', function() {
-        alert('newGame clicked');
+        console.log('newGame clicked');
         GLOBALBOOLS.newModalClicked = true;
         handleEnterNumPlayersModal();
     })
@@ -276,7 +282,6 @@ export function enterCreatePlayersModal() {
         show('inputRender');
         show('enterBackBtns');
         generateInputs();
-        
     }
 }
 
