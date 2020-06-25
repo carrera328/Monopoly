@@ -4,7 +4,8 @@ import * as main from './main.js';
 
 export let GLOBALBOOLS = {
     newModalClicked: false,
-    numPlayersSelected: false
+    numPlayersSelected: false,
+    done: false
 }
 
 export let playersThisGame = [];
@@ -115,7 +116,7 @@ export function generateTurn(player, gameBoard) {
             }
             
         }
-    }
+    }z
 }
 
 // prep modal
@@ -179,7 +180,7 @@ export function assignTurn(players) {
 export function Game(players, board) {
     let gameOver = false;
     
-    // who rolls first functionality
+    // who rolls first functionalityz
 
     // generateTurns until one player wins or quit game is clicked
 
@@ -248,42 +249,96 @@ export function show(modalId) {
     }
 }
 
-export function handleNewGameModal() {
+export function pregame() {
+    let done = false;
+    let plyrs = [];
     this.show('newGameModal');
     let newGame = document.getElementById("newGameBtn");
     let loadGame = document.getElementById("loadGameBtn");
     newGame.addEventListener('click', function() {
         console.log('newGame clicked');
         GLOBALBOOLS.newModalClicked = true;
-        handleEnterNumPlayersModal();
-    })
+        let nextBtn = document.getElementById('nextBtn');
+        if (GLOBALBOOLS.newModalClicked) {
+            hide('newGameModal');
+            show('inputPlayerParent');
+            nextBtn.addEventListener('click', () => {
+                GLOBALBOOLS.numPlayersSelected = true;
+                if (GLOBALBOOLS.numPlayersSelected = true) {
+                    hide('inputPlayerParent');
+                    show('inputHead');
+                    show('playerInputContainer');
+                    show('inputRender');
+                    show('enterBackBtns');
+                    let inputsToCreate = 0;
+                    let numOfInputs = document.getElementById("numPlayers").value;
+                    inputsToCreate = numOfInputs;
+                    let container = document.getElementById("playerInputContainer");
+                    let back = document.getElementById("backBtn");
+                    let next = document.getElementById("nextBtn");
+                    let enter = document.getElementById("enter");
+                    container.classList.remove("hide");
+                    for (let i = 0; i < inputsToCreate; i++) {
+                        let input = document.createElement("input");
+                        input.setAttribute('type', 'text');
+                        input.setAttribute('placeholder', `Player ${i + 1}`);
+                        input.setAttribute('id', `input${i + 1}`);
+                        container.appendChild(input);
+                    }
+                    // alternate way to create players
+                    enter.addEventListener('click', () => {
+                        for (let i = 0; i < inputsToCreate; i++) {
+                            if ( playersThisGame.length < inputsToCreate) {
+                                playersThisGame.push(new Player(document.getElementById(`input${i + 1}`).value));
+                            }
+                        }
+                        console.log(playersThisGame);
+                        GLOBALBOOLS.done = true;
+                    });
+                }
+            });
+        } else {
+            alert('Tests are passing');
+        }    
+    });    
 }
 
-export function handleEnterNumPlayersModal() {
-    let nextBtn = document.getElementById('nextBtn');
-    if (GLOBALBOOLS.newModalClicked) {
-        hide('newGameModal');
-        show('inputPlayerParent');
-        nextBtn.addEventListener('click', () => {
-            GLOBALBOOLS.numPlayersSelected = true;
-            enterCreatePlayersModal();
-        })
+// export function handleNewGameModal() {
+//     this.show('newGameModal');
+//     let newGame = document.getElementById("newGameBtn");
+//     let loadGame = document.getElementById("loadGameBtn");
+//     newGame.addEventListener('click', function() {
+//         console.log('newGame clicked');
+//         GLOBALBOOLS.newModalClicked = true;
+//         handleEnterNumPlayersModal();
+//     });
+// }
 
-    } else {
-        alert('Tests are passing');
-    }
-}
+// export function handleEnterNumPlayersModal() {
+//     let nextBtn = document.getElementById('nextBtn');
+//     if (GLOBALBOOLS.newModalClicked) {
+//         hide('newGameModal');
+//         show('inputPlayerParent');
+//         nextBtn.addEventListener('click', () => {
+//             GLOBALBOOLS.numPlayersSelected = true;
+//             enterCreatePlayersModal();
+//         })
 
-export function enterCreatePlayersModal() {
-    if (GLOBALBOOLS.numPlayersSelected = true) {
-        hide('inputPlayerParent');
-        show('inputHead');
-        show('playerInputContainer');
-        show('inputRender');
-        show('enterBackBtns');
-        generateInputs();
-    }
-}
+//     } else {
+//         alert('Tests are passing');
+//     }
+// }
+
+// export function enterCreatePlayersModal() {
+//     if (GLOBALBOOLS.numPlayersSelected = true) {
+//         hide('inputPlayerParent');
+//         show('inputHead');
+//         show('playerInputContainer');
+//         show('inputRender');
+//         show('enterBackBtns');
+//         generateInputs();
+//     }
+// }
 
 export function whoRollsFirst() {
     
