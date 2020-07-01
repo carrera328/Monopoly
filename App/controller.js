@@ -7,8 +7,7 @@ import * as main from './main.js';
 export function init() {
     let board = helper.playerBoard(schema.Board);
     let pregameModals = true;
-    helper.pregame();
-}
-
-
-
+    //helper.pregame();
+    //helper.handleNewGameModal().then(helper.handleEnterNumPlayersModal).then(helper.enterCreatePlayersModal).then(helper.generateInputs);
+    let players = helper.getPlayersAfterInput();
+} 

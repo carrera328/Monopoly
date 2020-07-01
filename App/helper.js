@@ -201,29 +201,32 @@ export function handler() {
 }
 
 export function generateInputs() {
-    let inputsToCreate = 0;
-    let numOfInputs = document.getElementById("numPlayers").value;
-    inputsToCreate = numOfInputs;
-    let container = document.getElementById("playerInputContainer");
-    let back = document.getElementById("backBtn");
-    let next = document.getElementById("nextBtn");
-    let enter = document.getElementById("enter");
-    container.classList.remove("hide");
-    for (let i = 0; i < inputsToCreate; i++) {
-        let input = document.createElement("input");
-        input.setAttribute('type', 'text');
-        input.setAttribute('placeholder', `Player ${i + 1}`);
-        input.setAttribute('id', `input${i + 1}`);
-        container.appendChild(input);
-    }
-    // alternate way to create players
-    enter.addEventListener('click', () => {
+    return new Promise(function(resolve, reject) {
+        let inputsToCreate = 0;
+        let numOfInputs = document.getElementById("numPlayers").value;
+        inputsToCreate = numOfInputs;
+        let container = document.getElementById("playerInputContainer");
+        let back = document.getElementById("backBtn");
+        let next = document.getElementById("nextBtn");
+        let enter = document.getElementById("enter");
+        container.classList.remove("hide");
         for (let i = 0; i < inputsToCreate; i++) {
-            playersThisGame.push(new Player(document.getElementById(`input${i + 1}`).value));
-            alert(playersThisGame[i].name);
+            let input = document.createElement("input");
+            input.setAttribute('type', 'text');
+            input.setAttribute('placeholder', `Player ${i + 1}`);
+            input.setAttribute('id', `input${i + 1}`);
+            container.appendChild(input);
         }
-    });
-    
+        // alternate way to create players
+        enter.addEventListener('click', () => {
+            for (let i = 0; i < inputsToCreate; i++) {
+                playersThisGame.push(new Player(document.getElementById(`input${i + 1}`).value));
+                alert(playersThisGame[i].name);
+                resolve();
+            }
+        });
+        
+    })
 }
 
 export function hide(modalId) {
@@ -249,96 +252,121 @@ export function show(modalId) {
     }
 }
 
-export function pregame() {
-    let done = false;
-    let plyrs = [];
-    this.show('newGameModal');
-    let newGame = document.getElementById("newGameBtn");
-    let loadGame = document.getElementById("loadGameBtn");
-    newGame.addEventListener('click', function() {
-        console.log('newGame clicked');
-        GLOBALBOOLS.newModalClicked = true;
-        let nextBtn = document.getElementById('nextBtn');
-        if (GLOBALBOOLS.newModalClicked) {
-            hide('newGameModal');
-            show('inputPlayerParent');
-            nextBtn.addEventListener('click', () => {
-                GLOBALBOOLS.numPlayersSelected = true;
-                if (GLOBALBOOLS.numPlayersSelected = true) {
-                    hide('inputPlayerParent');
-                    show('inputHead');
-                    show('playerInputContainer');
-                    show('inputRender');
-                    show('enterBackBtns');
-                    let inputsToCreate = 0;
-                    let numOfInputs = document.getElementById("numPlayers").value;
-                    inputsToCreate = numOfInputs;
-                    let container = document.getElementById("playerInputContainer");
-                    let back = document.getElementById("backBtn");
-                    let next = document.getElementById("nextBtn");
-                    let enter = document.getElementById("enter");
-                    container.classList.remove("hide");
-                    for (let i = 0; i < inputsToCreate; i++) {
-                        let input = document.createElement("input");
-                        input.setAttribute('type', 'text');
-                        input.setAttribute('placeholder', `Player ${i + 1}`);
-                        input.setAttribute('id', `input${i + 1}`);
-                        container.appendChild(input);
-                    }
-                    // alternate way to create players
-                    enter.addEventListener('click', () => {
-                        for (let i = 0; i < inputsToCreate; i++) {
-                            if ( playersThisGame.length < inputsToCreate) {
-                                playersThisGame.push(new Player(document.getElementById(`input${i + 1}`).value));
-                            }
-                        }
-                        console.log(playersThisGame);
-                        GLOBALBOOLS.done = true;
-                    });
-                }
-            });
-        } else {
-            alert('Tests are passing');
-        }    
-    });    
-}
-
-// export function handleNewGameModal() {
+// export function pregame() {
+//     let done = false;
+//     let plyrs = [];
 //     this.show('newGameModal');
 //     let newGame = document.getElementById("newGameBtn");
 //     let loadGame = document.getElementById("loadGameBtn");
 //     newGame.addEventListener('click', function() {
 //         console.log('newGame clicked');
 //         GLOBALBOOLS.newModalClicked = true;
-//         handleEnterNumPlayersModal();
-//     });
+//         let nextBtn = document.getElementById('nextBtn');
+//         if (GLOBALBOOLS.newModalClicked) {
+//             hide('newGameModal');
+//             show('inputPlayerParent');
+//             nextBtn.addEventListener('click', () => {
+//                 GLOBALBOOLS.numPlayersSelected = true;
+//                 if (GLOBALBOOLS.numPlayersSelected = true) {
+//                     hide('inputPlayerParent');
+//                     show('inputHead');
+//                     show('playerInputContainer');
+//                     show('inputRender');
+//                     show('enterBackBtns');
+//                     let inputsToCreate = 0;
+//                     let numOfInputs = document.getElementById("numPlayers").value;
+//                     inputsToCreate = numOfInputs;
+//                     let container = document.getElementById("playerInputContainer");
+//                     let back = document.getElementById("backBtn");
+//                     let next = document.getElementById("nextBtn");
+//                     let enter = document.getElementById("enter");
+//                     container.classList.remove("hide");
+//                     for (let i = 0; i < inputsToCreate; i++) {
+//                         let input = document.createElement("input");
+//                         input.setAttribute('type', 'text');
+//                         input.setAttribute('placeholder', `Player ${i + 1}`);
+//                         input.setAttribute('id', `input${i + 1}`);
+//                         container.appendChild(input);
+//                     }
+//                     // alternate way to create players
+//                     enter.addEventListener('click', () => {
+//                         for (let i = 0; i < inputsToCreate; i++) {
+//                             if ( playersThisGame.length < inputsToCreate) {
+//                                 playersThisGame.push(new Player(document.getElementById(`input${i + 1}`).value));
+//                             }
+//                         }
+//                         console.log(playersThisGame);
+//                         GLOBALBOOLS.done = true;
+//                     });
+//                 }
+//             });
+//         } else {
+//             alert('Tests are passing');
+//         }    
+//     });    
 // }
 
-// export function handleEnterNumPlayersModal() {
-//     let nextBtn = document.getElementById('nextBtn');
-//     if (GLOBALBOOLS.newModalClicked) {
-//         hide('newGameModal');
-//         show('inputPlayerParent');
-//         nextBtn.addEventListener('click', () => {
-//             GLOBALBOOLS.numPlayersSelected = true;
-//             enterCreatePlayersModal();
-//         })
 
-//     } else {
-//         alert('Tests are passing');
-//     }
-// }
 
-// export function enterCreatePlayersModal() {
-//     if (GLOBALBOOLS.numPlayersSelected = true) {
-//         hide('inputPlayerParent');
-//         show('inputHead');
-//         show('playerInputContainer');
-//         show('inputRender');
-//         show('enterBackBtns');
-//         generateInputs();
-//     }
-// }
+export function handleNewGameModal() {
+    return new Promise(function(resolve, reject)  {
+        show('newGameModal');
+        let newGame = document.getElementById("newGameBtn");
+        let loadGame = document.getElementById("loadGameBtn");
+        newGame.addEventListener('click', function() {
+            console.log('newGame clicked');
+            GLOBALBOOLS.newModalClicked = true;
+            resolve();
+        });
+    })
+    
+}
+
+export function test() {
+    alert('second function called');
+}
+
+export function handleEnterNumPlayersModal() {
+    return new Promise(function(resolve, reject) {
+        let nextBtn = document.getElementById('nextBtn');
+        if (GLOBALBOOLS.newModalClicked) {
+            hide('newGameModal');
+            show('inputPlayerParent');
+            nextBtn.addEventListener('click', () => {
+                GLOBALBOOLS.numPlayersSelected = true;
+                resolve();
+            })
+        } else {
+            alert('Tests are passing');
+        }
+    })
+}
+
+export function getGlobalBools() {
+    alert(GLOBALBOOLS.numPlayersSelected);
+}
+// 
+export function enterCreatePlayersModal() {
+return new Promise(function(resolve, reject) {
+        if (GLOBALBOOLS.numPlayersSelected = true) {
+            hide('inputPlayerParent');
+            show('inputHead');
+            show('playerInputContainer');
+            show('inputRender');
+            show('enterBackBtns');
+            resolve();
+        }
+    })
+        
+}    
+    
+export async function getPlayersAfterInput() {
+    await handleNewGameModal().then(handleEnterNumPlayersModal).then(enterCreatePlayersModal).then(generateInputs);
+    for (let i in playersThisGame) {
+        console.log(playersThisGame[i]);
+    }
+    return playersThisGame;
+} 
 
 export function whoRollsFirst() {
     

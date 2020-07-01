@@ -6,4 +6,5 @@ import * as controller from "./controller.js";
 import * as helper from "./helper.js";
 import schema from "./schema.js";
 
-controller.init();
+//controller.init();
+console.log(controller.init());
