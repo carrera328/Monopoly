@@ -15,7 +15,7 @@ export async function init() {
         'players': players,
         'board': board,
     }
-
+    console.log('Finish pre-game');
     return gameDetails;
 }
 
@@ -24,11 +24,20 @@ export async function game() {
     let gameInputs = await init();
     let players = gameInputs.players;
     let board = gameInputs.board;
-    console.log('boardBelow');
-    console.log(board);
+    let numPlayers = players.length;
+    // hide the pre-game modals
     helper.hide('inputRender');
+    players = helper.whoRollsFirst(players);
+    console.log(players);
+    helper.show('firsRollModal');
+    document.getElementById('rollWinner').innerHTML = `${players[0].name} has won first roll!`;
+    document.getElementById('rollOrder').innerHTML = `Roll Order: `;
+    for (let i = 0; i < players.length; i++) {
+        document.getElementById('rollOrder').innerHTML += `${players[i].name} `;
+    }
+
     // main game logic
-        helper.show("mainModal");
-        helper.generateTurn(players[0], board);
+        // helper.show("mainModal");
+        // helper.generateTurn(players[0], board);
     
 }
