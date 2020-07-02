@@ -29,12 +29,8 @@ export async function game() {
     helper.hide('inputRender');
     players = helper.whoRollsFirst(players);
     console.log(players);
-    helper.show('firsRollModal');
-    document.getElementById('rollWinner').innerHTML = `${players[0].name} has won first roll!`;
-    document.getElementById('rollOrder').innerHTML = `Roll Order: `;
-    for (let i = 0; i < players.length; i++) {
-        document.getElementById('rollOrder').innerHTML += `${players[i].name} `;
-    }
+    
+    helper.preRollModal(players);
     
     await helper.startMainGame();
     helper.hide('firsRollModal');

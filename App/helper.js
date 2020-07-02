@@ -153,8 +153,16 @@ export function prepareModal(player, gameBoard) {
         }
 }
 
-export function preRollModal(player, gameBoard) {
+export async function preRollModal(players) {
+    show('firsRollModal');
+    document.getElementById('rollWinner').innerHTML = `${players[0].name} has won first roll!`;
+    document.getElementById('rollOrder').innerHTML = `Roll Order: `;
+    for (let i = 0; i < players.length; i++) {
+        document.getElementById('rollOrder').innerHTML += `${players[i].name} `;
+    }
     
+    await startMainGame();
+    hide('firsRollModal');
 }
 
 export function assignTurn(players) {
@@ -163,11 +171,6 @@ export function assignTurn(players) {
         firstRollOutcomes.set(players[i], this.roll().rolled);
     }
     console.log(firstRollOutcomes);
-}
-
-
-export function handler() {
-    generateInputs();
 }
 
 export function generateInputs() {
@@ -190,9 +193,19 @@ export function generateInputs() {
         // alternate way to create players
         enter.addEventListener('click', () => {
             for (let i = 0; i < inputsToCreate; i++) {
-                playersThisGame.push(new Player(document.getElementById(`input${i + 1}`).value));
-                resolve();
+                if (!document.getElementById(`input${i + 1}`).value) {
+                    console.log(`Missing name for player ${i + 1}`);
+                    let message = prompt(`player ${i + 1} is missing a name, would like to provide one here?\na blank entry will default this name to \'Player ${i + 1}\'`);
+                    if (!message) {
+                     playersThisGame.push(new Player(`Player ${i + 1}`));   
+                    } else {
+                    playersThisGame.push(new Player(message));
+                    }
+                } else {
+                    playersThisGame.push(new Player(document.getElementById(`input${i + 1}`).value));
+                }
             }
+            resolve();
         });
         
     })
