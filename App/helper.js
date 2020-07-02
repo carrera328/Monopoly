@@ -165,26 +165,6 @@ export function assignTurn(players) {
     console.log(firstRollOutcomes);
 }
 
-// create game object
-
-export function Game(players, board) {
-    let gameOver = false;
-    
-    // who rolls first functionality
-
-    // generateTurns until one player wins or quit game is clicked
-
-    if (!gameOver) {
-        do {
-            //generateTurn(players, board);//
-            //for (let i in players) {
-
-            
-        } while (!gameOver)
-    }
-    
-    // invoke post game
-}
 
 export function handler() {
     generateInputs();
@@ -211,7 +191,6 @@ export function generateInputs() {
         enter.addEventListener('click', () => {
             for (let i = 0; i < inputsToCreate; i++) {
                 playersThisGame.push(new Player(document.getElementById(`input${i + 1}`).value));
-                alert(playersThisGame[i].name);
                 resolve();
             }
         });
@@ -256,9 +235,6 @@ export function handleNewGameModal() {
     
 }
 
-export function test() {
-    alert('second function called');
-}
 
 export function handleEnterNumPlayersModal() {
     return new Promise(function(resolve, reject) {
@@ -293,7 +269,13 @@ return new Promise(function(resolve, reject) {
     })
         
 }    
-    
+export function startMainGame() {
+    return new Promise(function(resolve, reject) {
+        document.getElementById('mainGame').addEventListener('click', ()=>{
+            resolve('new game!');
+        })    
+    })
+}    
 export async function getPlayersAfterInput() {
     await handleNewGameModal().then(handleEnterNumPlayersModal).then(enterCreatePlayersModal).then(generateInputs);
     for (let i in playersThisGame) {

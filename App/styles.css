@@ -22,7 +22,7 @@ body {
 }
 
 .modal {
-    display:flex;
+    display:block;
     flex-direction: column;
     width: 800px;
     position: absolute;
@@ -337,4 +337,10 @@ input {
 }
 .hide {
     display: none !important;
+}
+
+#maingame {
+    position: relative !important;
+    display: flex !important; 
+    width: 25% !important;
 }

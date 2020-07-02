@@ -35,9 +35,14 @@ export async function game() {
     for (let i = 0; i < players.length; i++) {
         document.getElementById('rollOrder').innerHTML += `${players[i].name} `;
     }
-
+    
+    await helper.startMainGame();
+    helper.hide('firsRollModal');
+    alert("WE ARE IN MAIN GAME");
+    
+    
     // main game logic
-        // helper.show("mainModal");
-        // helper.generateTurn(players[0], board);
+    helper.show("mainModal");
+    helper.generateTurn(players[0], board);
     
 }
