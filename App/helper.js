@@ -69,7 +69,8 @@ export function playerBoard(templateBoard) {
     return newBoard;
 }
 
-export function generateTurn(player, gameBoard) { 
+export function generateTurn(player, gameBoard) {
+    console.log(player); 
     // open roll modal
     let roll = this.roll();
     let timesRolledDoubles = 0;
@@ -116,16 +117,13 @@ export function generateTurn(player, gameBoard) {
             }
             
         }
-    }z
+    }
 }
 
 // prep modal
 
 export function prepareModal(player, gameBoard) {
-    let modal = document.getElementById("mainModal");
-    // if (modal.style.display === "none") {
-        
-
+        let modal = document.getElementById("mainModal");
         modal.style.display = "block";
         let heading = document.getElementById("nameOfBoardPlace");
         let price = document.getElementsByClassName("upperStuff");
@@ -157,10 +155,6 @@ export function prepareModal(player, gameBoard) {
         console.log(document.getElementsByClassName("btn")[2].addEventListener('click', function() {
             modal.style.display = 'none';
         }));
-    // } else {
-    //     modal.style.display = "none";
-    // }
-    // rent info 
 }
 
 export function prerRollModal(player, gameBoard) {
@@ -180,7 +174,7 @@ export function assignTurn(players) {
 export function Game(players, board) {
     let gameOver = false;
     
-    // who rolls first functionalityz
+    // who rolls first functionality
 
     // generateTurns until one player wins or quit game is clicked
 

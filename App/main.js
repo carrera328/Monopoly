@@ -7,4 +7,7 @@ import * as helper from "./helper.js";
 import schema from "./schema.js";
 
 //controller.init();
-console.log(controller.init());
+//console.log(controller.init());
+controller.game();
+
+

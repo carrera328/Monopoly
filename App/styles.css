@@ -71,7 +71,7 @@ body {
     display: block;
     position: relative;
     background-color: white;
-    width: 25%;
+    width: 50%;
     left: 50%;
     top: 8.5rem;
     -webkit-transform: translate(-50%, -50%);
