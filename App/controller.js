@@ -29,14 +29,12 @@ export async function game() {
     helper.hide('inputRender');
     players = helper.whoRollsFirst(players);
     console.log(players);
-    
+
     helper.preRollModal(players);
-    
     await helper.startMainGame();
     helper.hide('firsRollModal');
     alert("WE ARE IN MAIN GAME");
-    
-    
+
     // main game logic
     helper.show("mainModal");
     helper.generateTurn(players[0], board);

@@ -158,7 +158,7 @@ export async function preRollModal(players) {
     document.getElementById('rollWinner').innerHTML = `${players[0].name} has won first roll!`;
     document.getElementById('rollOrder').innerHTML = `Roll Order: `;
     for (let i = 0; i < players.length; i++) {
-        document.getElementById('rollOrder').innerHTML += `${players[i].name} `;
+        document.getElementById('rollOrder').innerHTML += `${players[i].name}  `;
     }
     
     await startMainGame();
@@ -247,7 +247,6 @@ export function handleNewGameModal() {
     })
     
 }
-
 
 export function handleEnterNumPlayersModal() {
     return new Promise(function(resolve, reject) {
