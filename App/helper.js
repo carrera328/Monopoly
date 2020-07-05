@@ -207,6 +207,24 @@ export function generateInputs() {
             }
             resolve();
         });
+        window.addEventListener('keydown', (e) => {
+            if (e.keyCode == 13) {
+                for (let i = 0; i < inputsToCreate; i++) {
+                    if (!document.getElementById(`input${i + 1}`).value) {
+                        console.log(`Missing name for player ${i + 1}`);
+                        let message = prompt(`player ${i + 1} is missing a name, would like to provide one here?\na blank entry will default this name to \'Player ${i + 1}\'`);
+                        if (!message) {
+                         playersThisGame.push(new Player(`Player ${i + 1}`));   
+                        } else {
+                        playersThisGame.push(new Player(message));
+                        }
+                    } else {
+                        playersThisGame.push(new Player(document.getElementById(`input${i + 1}`).value));
+                    }
+                }
+                resolve();
+            }
+        }, {once: true})
         
     })
 }
@@ -244,6 +262,13 @@ export function handleNewGameModal() {
             GLOBALBOOLS.newModalClicked = true;
             resolve();
         });
+        window.addEventListener('keydown', (e) => {
+            if (e.keyCode == 13) {
+                console.log('newGame clicked');
+                GLOBALBOOLS.newModalClicked = true;
+                resolve();
+            }
+        }, {once:true});
     })
     
 }
@@ -257,7 +282,14 @@ export function handleEnterNumPlayersModal() {
             nextBtn.addEventListener('click', () => {
                 GLOBALBOOLS.numPlayersSelected = true;
                 resolve();
-            })
+            });
+            window.addEventListener('keydown', (e) => {
+                if (e.keyCode == 13) {
+                    GLOBALBOOLS.numPlayersSelected = true;
+                    resolve();    
+                }
+            }, {once: true});
+            
         } else {
             alert('Tests are passing');
         }
@@ -285,7 +317,10 @@ export function startMainGame() {
     return new Promise(function(resolve, reject) {
         document.getElementById('mainGame').addEventListener('click', ()=>{
             resolve('new game!');
-        })    
+        });
+        window.addEventListener('keydown', (e) => {
+            resolve('new game!')
+        }, {once:true});    
     })
 }    
 export async function getPlayersAfterInput() {

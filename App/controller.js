@@ -36,7 +36,9 @@ export async function game() {
     alert("WE ARE IN MAIN GAME");
 
     // main game logic
-    helper.show("mainModal");
-    helper.generateTurn(players[0], board);
+    //helper.show("mainModal");
+    helper.show("boardContainer");
+    //helper.generateTurn(players[0], board);
+    
     
 }
